@@ -1,4 +1,4 @@
-This tutorial will demonstrate a way to create a proprietary Scala library
+This tutorial will demonstrate a way to create a proprietary Scala library  
 Topics covered: Java/Scala interop, SBT, Proguarding
 
 # The setup (our story begins)
@@ -6,7 +6,7 @@ Topics covered: Java/Scala interop, SBT, Proguarding
 You have been contracted by a Client to create an implementation of a certain Java interface.  
 The interface itself has been provided by the Client, is open source, and cannot be modified.
 
-In our imaginary example, the interface in question will be an [AgeVerificator].
+In our imaginary example, the interface in question will be an [AgeVerificator](https://github.com/melezov/scala-proprietary-tutorial/blob/master/0-spt-age-verificator/src/main/java/hr/element/spt/AgeVerificator.java).
 
     package hr.element.spt;
     
@@ -16,10 +16,9 @@ In our imaginary example, the interface in question will be an [AgeVerificator].
 
 The Client is a well established entity in the world of age verification, and already has mulitple products which implement this AgeVerificator in different ways:
 
-    MarriageableAgeVerificator
-    WineMaturityVerificator
-    ... etc ...
-    
+- MarriageableAgeVerificator
+- WineMaturityVerificator
+
 Your particular contract requires of you to implement a legal drinking age verification library which will determine whether a person can purchase a bottle of wine in various countries.
 
     package hr.element.spt.lda;
@@ -47,10 +46,10 @@ You are a Scala developer, and solving such a problem using your favorite progra
 In order to follow up on the setup, you need to create two dependencies for your project.
 
 The first dependency is the sbt-age-verificator interface, the second is the list of [ISO-3166-1](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) countries that the client uses in their projects.  
-Since in our story the dependencies have already been published by the client. To emulate this, we'll simply run publishLocal on the two Java projects:
+In our story the dependencies have already been published by the client. To emulate this, we'll simply run publishLocal on the two Java projects:
 
-  0-spt-age-verificator/publish-local.sh
-  0-spt-countries/publish-local.sh
+    0-spt-age-verificator/publish-local.sh
+    0-spt-countries/publish-local.sh
 
 Now that the dependencies are in place, let's take a look at the first implementation:
 
