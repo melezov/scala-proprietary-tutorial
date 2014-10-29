@@ -1,6 +1,6 @@
 organization := "hr.element.spt"
 
-name := "legal-drinking-age-first"
+name := "spt-legal-drinking-age-first"
 
 version := "0.1.0"
 

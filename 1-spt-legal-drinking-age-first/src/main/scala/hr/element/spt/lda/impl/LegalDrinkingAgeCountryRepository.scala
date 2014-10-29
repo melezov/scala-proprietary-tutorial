@@ -4,20 +4,18 @@ package impl
 
 import countries.Country
 
-private object NoAgeVerification
-    extends AgeVerificator {
+private [impl] object NoAgeVerification extends AgeVerificator {
   def isUnderage(age: Int) = false
 }
 
-private class ThresholdAgeVerification(threshold: Int)
-    extends AgeVerificator {
+private [impl] class ThresholdAgeVerification(threshold: Int) extends AgeVerificator {
   def isUnderage(age: Int) = age < threshold
 }
 
 /** A mock implementation of a countries legal drinking age limits,
   * for the purposes of a reasonably complete implementation.
   * It goes without saying that IANAL, TINLA ;) */
-object LegalDrinkingAgeCountryRepository {
+private [lda] object LegalDrinkingAgeCountryRepository {
   def createAgeVerifier(country: Country) =
     country match {
       case Country.CU | Country.NO =>
